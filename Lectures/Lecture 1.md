@@ -17,7 +17,7 @@
 
 - `git add [file_name]`
 - `git status`
-- `git commite -m "title"`
+- `git commit -m "title"`
 - `git log`
 - `git clone [link]`
 - `git pull/push`
