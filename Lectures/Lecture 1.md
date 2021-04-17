@@ -10,7 +10,7 @@
 - `chmod ` - - to edit permission
 - `echo "input"` - - echoes the input to the stdout
 - `which [command]` - - location of command in file system
-- `mkdir' - - make a directory
+- `mkdir` - - make a directory
 - `apt` - - Advanced Packaging Tool
 - `ssh` - - Secure shell 
 ## _Git Commands_
