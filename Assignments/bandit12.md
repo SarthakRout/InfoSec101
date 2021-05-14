@@ -53,7 +53,6 @@ Which shows this file "w" is now bzip2 compressed, which is what hint said the f
 w: gzip compressed data, was "data4.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
 
 this says again the file is gzipped so again we used commands-
-
 mv w w.gz
 gunzip w
 file w
@@ -61,7 +60,7 @@ file w
 now got output as-
 w: POSIX tar archive (GNU)
 
-which says the file is now compressed using tar. First, we changed extension to ".tar" using command "mv w w.tar" and furthur extracting the compressed file using- 
+which says the file is now compressed using tar. First, we changed extension to ".tar" using command "mv w w.tar" and furthur extracting the compressed file using-
 tar -xvf w.tar
 
 And got output as-
@@ -98,7 +97,6 @@ bandit12@bandit:~$ mkdir /tmp/n
 bandit12@bandit:~$ cp -p data.txt /tmp/n
 bandit12@bandit:~$ cd /tmp/n
 bandit12@bandit:/tmp/n$ file data.txt
-data.txt: ASCII text
 bandit12@bandit:/tmp/n$ xxd -r data.txt > w
 bandit12@bandit:/tmp/n$ file w
 w: gzip compressed data, was "data2.bin", last modified: Thu May  7 18:14:30 2020, max compression, from Unix
@@ -139,8 +137,11 @@ bandit12@bandit:/tmp/n$ file d8
 d8: ASCII text
 bandit12@bandit:/tmp/n$ cat d8
 The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+--
 
 ```
 
 ## Suggested modifications [Optional]
 What can you do to make this level more difficult. The inherent idea should be similar.
+
+
