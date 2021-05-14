@@ -1,34 +1,37 @@
 # Bandit Level 11 to 12 Writeup
 
 
-Author: [Naman Singla](https://github.com/nsingla20)
+Author: [Ashutosh Sharma](https://github.com/asharma8602)
 
-Problem Page: [bandit11](https://overthewire.org/wargames/bandit/bandit12.html)
+Problem Page: [bandit11](https://overthewire.org/bandit/bandit12)
 
 ## List of Commands Used
 ```
-sshpass - For Authentucating ssh with scripts
-ssh	- To login to remote server using user id
-clear	- to clear the current screen for cleaner output
-tr	- For rotating characters
-exit	- To close the connection to ssh server
+ls - list files in a directory
+cat - concatenate files and print on the standard output
+man - an interface to the on-line reference manuals
+ssh — OpenSSH SSH client (remote login program) 
+tr - translate or delete characters
 ```
 
 ## Walkthrough
-Just came to know about command base64 given in list on website. Then googled it to check its use.
+The password was contained in a file named data.txt which was encrypted in by ROT13 algorithm , in which each small and upeer case alphabet is changed to 13th alphabet after it. So the translate(tr) command was the most appropirate for this task. From the man page and reading some examples through google, the sets for tr command had to be ranges in which each character will be lying and another will be range in which the given characters will be translated.
 
 ## Password
 `5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu`
 
 ## Bash/Python script to automate the process
 ```
-#!/bin/bash
-sshpass -p "IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR" ssh -tt -o StrictHostKeyChecking=no bandit11@bandit.labs.overthewire.org -p 2220 <<HERE
-clear
-cat data.txt | tr '[a-z]' '[n-za-m]' | tr '[A-Z]' '[N-ZA-M]'
-exit
-HERE
-
+#!/usr/bin/expect -f
+spawn ssh -p 2220 bandit11@bandit.labs.overthewire.org
+expect "password: "
+send "IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR\r"
+expect "$ "
+ls
+man tr
+cat data.txt | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'
+expect "$ "
+send "exit\r"
 ```
 
 ## Suggested modifications [Optional]
